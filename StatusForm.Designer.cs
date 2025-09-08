@@ -50,7 +50,7 @@
             this.btn_Main.Name = "btn_Main";
             this.btn_Main.Size = new System.Drawing.Size(153, 48);
             this.btn_Main.TabIndex = 1;
-            this.btn_Main.Text = "Back to Main";
+            this.btn_Main.Text = "Close";
             this.btn_Main.UseVisualStyleBackColor = false;
             this.btn_Main.Click += new System.EventHandler(this.btn_Main_Click);
             // 
