@@ -88,7 +88,7 @@
             this.btn_StatusIssues.Name = "btn_StatusIssues";
             this.btn_StatusIssues.Size = new System.Drawing.Size(140, 51);
             this.btn_StatusIssues.TabIndex = 0;
-            this.btn_StatusIssues.Text = "Reported Issues";
+            this.btn_StatusIssues.Text = "View Reports";
             this.btn_StatusIssues.UseVisualStyleBackColor = true;
             this.btn_StatusIssues.Click += new System.EventHandler(this.btn_StatusIssues_Click);
             // 
