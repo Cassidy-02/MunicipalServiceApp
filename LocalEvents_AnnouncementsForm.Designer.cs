@@ -93,9 +93,9 @@
             // 
             this.btnUrgent.Location = new System.Drawing.Point(7, 61);
             this.btnUrgent.Name = "btnUrgent";
-            this.btnUrgent.Size = new System.Drawing.Size(110, 23);
+            this.btnUrgent.Size = new System.Drawing.Size(137, 29);
             this.btnUrgent.TabIndex = 5;
-            this.btnUrgent.Text = "Soonest Event";
+            this.btnUrgent.Text = "Urgent Event";
             this.btnUrgent.UseVisualStyleBackColor = true;
             this.btnUrgent.Click += new System.EventHandler(this.btnUrgent_Click);
             // 
