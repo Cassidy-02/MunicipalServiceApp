@@ -102,5 +102,10 @@ namespace MunicipalServiceApp
         {
             
         }
+
+        private void txtLocation_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
