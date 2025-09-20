@@ -59,7 +59,6 @@
             // 
             // btnEvents
             // 
-            this.btnEvents.Enabled = false;
             this.btnEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEvents.Location = new System.Drawing.Point(357, 254);
             this.btnEvents.Name = "btnEvents";

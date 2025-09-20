@@ -29,6 +29,11 @@ namespace MunicipalServiceApp
         private void btnEvents_Click(object sender, EventArgs e)
         {
             //Implement in Part 2
+            LocalEvents_AnnocumentsForm eventsForm = new LocalEvents_AnnocumentsForm(this);
+            this.Hide();
+            eventsForm.ShowDialog();
+            if (!this.IsDisposed && !this.Disposing)
+                this.Show();
         }
 
         private void btnStatus_Click(object sender, EventArgs e)
