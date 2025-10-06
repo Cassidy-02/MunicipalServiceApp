@@ -1,11 +1,12 @@
 # MunicipalServiceApp
 ## Project Overview
-- This project is a C# Windows Forms Application designed to improve resident engagement with municipal services by reporting issues in their community. The app is built around the user engagement strategy of Participatory Digital Platforms, making it easier for                            citizens to submit complaints, attach images, and track service request statuses. 
+- This project is a C# Windows Forms Application designed to improve resident engagement with municipal services by reporting issues in their community, display local events, and announcements. The app is built around the user engagement strategy of Participatory Digital Platforms, making it easier for                            citizens to submit complaints, attach images, track service request statuses and view local events & announcements. 
 Users can:
 - Report municipal issues (roads, water, electricity, etc.).
 - View previously reported issues.
 - Delete issues if needed.
 - Track engagement with feedback messages, labels, and counters.
+- Allows users to browse, search, and filter events.
 The Main Menu (Form1) acts as the hub:
 - It never closes (only hides) when other forms are open.
 - When a sub-form is closed, Form1 reappears automatically.
@@ -31,14 +32,12 @@ ________________________________________________________________________________
 ___________________________________________________________________________________________________________________________________________________________________________________________________________________________
 ## Project Structure
 MunicipalServicesApp/
-│
-├── Form1.cs                # Main Menu (hub)
-├── ReportIssuesForm.cs     # Form to report issues
-├── StatusForm.cs           # Form to view/delete issues
-├── Issue.cs                # Class to store issue data
-├── IssueRepository.cs      # Handles saving/loading issues
-├── IssueReports.txt        # File storing reported issues
-└── README.md               # Documentation
+- Event.cs — Class representing an event with properties: Name, Date, Location, Description, Category.
+- LocalEvents_AnnouncementsForm.cs — Handles event display, search, filtering, and urgent event selection.
+- ReportIssuesForm.cs — Handles issue reporting and media upload.
+- Form1.cs — Main form with navigation.
+- IssueRepository.cs — Handles storage of reported issues.
+- Program.cs — Application entry point.
 _________________________________________________________________________________________________________________________________________________________________________________________________________________________
 ## How the User Engagement Strategy is Applied
 The project applies the Participatory Digital Platforms strategy by:
@@ -53,10 +52,11 @@ ________________________________________________________________________________
    - Two options:
      - Report Issues
      - View Reports
+     - Local Events and Announcements
 2. Report Issues Form
    - Fill the following fields:
      - Location (TextBox)
-     - Cateory (ListBox)
+     - Cateory (ComboBox)
      - Description (RichTextBox)
      - Media Attachment (Button)
    - Click Submit to save the report.
@@ -68,7 +68,32 @@ ________________________________________________________________________________
      - List of issues displayed in a list box.
      - Delete Issue button to remove one issue.
      - Close button returns to the main menu.
-   - If no issue exist, a message appears and the form closes automatically.
+     - If no issue exist, a message appears and the form closes automatically.
+4. Local Events Announcements
+   - Click Local Events & Announcements.
+   - The ListView shows upcoming events with the following columns:
+     - Event Name 
+     - Date
+     - Category
+     - Location
+     - Description
+   - The Status Bar at the bottom shows the total number of events currently displayed.
+   - Search and filter events by:
+     - Category (ComboBox)
+       - Use the Category drop-down
+       - Select a specific category or "All" to see all events.
+     - Date (DatePicker)
+       - Use the Date picker to select a date.
+   - Highlight the most urgent event using a priority queue:
+     - Urgent Event (Button)
+       - Click Urgent Event to see the most urgent upcoming event.
+       - A pop-up displays the event name date.
+   - Automatically organises events by date and category using SortedDictionary.
+   - Maintains unique categories and dates using HashSet.
+   - Click "Search" (button) to search event/announcement.
+5. Navigation
+   - Use "Back to Menu" buttons to return to the main menu.
+   - You can navigate between Events and Report Issues without losing data...
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________
 ## Data Handling (Data Structures)
 - Issues are stored in a List<Issue>, making it easy to:
@@ -76,9 +101,20 @@ ________________________________________________________________________________
   - Delete reports.
   - Display all reports.
 - The list is synchronised with IssueReports.txt for persistent storage.
+- SortedDictionary<string>,List<Event>> - Automatically sorts events by category.
+- PriorityQueue<Event> - Identifies and retrieves the most urgent events.
+- HashSet<string> / HashSet<DateTime> - Stores unique categories and dates efficiently.
+______________________________________________________________________________________________________________________________________________________________________________________________________________________
+## Error Handling
+- Try-catch blocks are implemented for:
+  - Event display
+  - Filtering and searching
+  - Navigation
+  - Issue submission
+- Errors are displayed via MessageBox to ensure smooth user experience.
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________
 ## Future Enhancements
-- Enable Local Events and Announcements, and Service Request Status.
+- Enable Service Request Status.
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________
 ## Author
 Developed by Cassidy Motto as part of a municipal engagement project.
