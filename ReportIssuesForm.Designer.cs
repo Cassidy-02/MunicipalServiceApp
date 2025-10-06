@@ -32,7 +32,6 @@
             this.txtLocation = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.listCategory = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnUpload = new System.Windows.Forms.Button();
@@ -42,6 +41,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.richtxtDescription = new System.Windows.Forms.RichTextBox();
+            this.listCategory = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -73,20 +73,6 @@
             this.label2.Size = new System.Drawing.Size(97, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "Category ";
-            // 
-            // listCategory
-            // 
-            this.listCategory.FormattingEnabled = true;
-            this.listCategory.ItemHeight = 16;
-            this.listCategory.Items.AddRange(new object[] {
-            "Water",
-            "Electriicty",
-            "Roads",
-            "Drains"});
-            this.listCategory.Location = new System.Drawing.Point(256, 101);
-            this.listCategory.Name = "listCategory";
-            this.listCategory.Size = new System.Drawing.Size(197, 52);
-            this.listCategory.TabIndex = 3;
             // 
             // label3
             // 
@@ -171,12 +157,26 @@
             this.richtxtDescription.Text = "";
             this.richtxtDescription.TextChanged += new System.EventHandler(this.richtxtDescription_TextChanged);
             // 
+            // listCategory
+            // 
+            this.listCategory.FormattingEnabled = true;
+            this.listCategory.Items.AddRange(new object[] {
+            "Water",
+            "Electricity",
+            "Roads",
+            "Drains"});
+            this.listCategory.Location = new System.Drawing.Point(327, 102);
+            this.listCategory.Name = "listCategory";
+            this.listCategory.Size = new System.Drawing.Size(178, 24);
+            this.listCategory.TabIndex = 13;
+            // 
             // ReportIssuesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.listCategory);
             this.Controls.Add(this.richtxtDescription);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pictureBox1);
@@ -185,7 +185,6 @@
             this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.listCategory);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtLocation);
@@ -203,7 +202,6 @@
         private System.Windows.Forms.TextBox txtLocation;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox listCategory;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnUpload;
@@ -213,5 +211,6 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.RichTextBox richtxtDescription;
+        private System.Windows.Forms.ComboBox listCategory;
     }
 }

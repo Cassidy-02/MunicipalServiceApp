@@ -27,75 +27,124 @@ namespace MunicipalServiceApp
         //Upload media button
         private void btnUpload_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openfile = new OpenFileDialog();
-            openfile.Filter = "Image Files|*.jpg;*.jpeg;*.png|All Files|*.*";
-            if (openfile.ShowDialog() == DialogResult.OK)
+            try
             {
-                pictureBox1.Image = Image.FromFile(openfile.FileName);
+                OpenFileDialog openfile = new OpenFileDialog()
+                {
+                    Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All Files|*.*"
+                };
+
+                if (openfile.ShowDialog() == DialogResult.OK)
+                {
+                    // Display selected image in PictureBox
+                    pictureBox1.Image = Image.FromFile(openfile.FileName);
+                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+            }
+            catch (OutOfMemoryException)
+            {
+                MessageBox.Show("The selected file is not a valid image format.", "Invalid Image", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while loading the image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         // Submit report button
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            // clear old errors
-            errorProvider1.Clear();
-            bool hasError = false;
-
-            //Check category
-            if (listCategory.SelectedItem == null)
+            try
             {
-                errorProvider1.SetError(listCategory, "Please select a category.");
-                hasError = true;
+                // clear old errors
+                errorProvider1.Clear();
+                bool hasError = false;
+
+                //Check category
+                if (listCategory.SelectedItem == null)
+                {
+                    errorProvider1.SetError(listCategory, "Please select a category.");
+                    hasError = true;
+                }
+
+                //Check description
+                if (string.IsNullOrWhiteSpace(richtxtDescription.Text))
+                {
+                    errorProvider1.SetError(richtxtDescription, "Description cannot be empty.");
+                    hasError = true;
+                }
+
+                //Check location
+                if (string.IsNullOrWhiteSpace(txtLocation.Text))
+                {
+                    errorProvider1.SetError(txtLocation, "Location cannot be empty.");
+                    hasError = true;
+                }
+                if (hasError) return; //stop submission if there are errors
+
+                var issue = new Issue
+                {
+                    Category = listCategory.SelectedItem.ToString(),
+                    Description = richtxtDescription.Text.Trim(),
+                    Location = txtLocation.Text.Trim(),
+                    DateReported = DateTime.Now
+                };
+
+
+                try
+                {
+
+                    //Add to repository (adds to list + file)
+                    IssueRepository.AddIssue(issue);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Failed to save the issue report: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+
+                //Simulate progress
+                try
+                {
+                    progressBar1.Value = 0;
+                    for (int i = 0; i <= 100; i += 10)
+                    {
+                        progressBar1.Value = i;
+                        System.Threading.Thread.Sleep(50); //small delay to simulate progress
+                        Application.DoEvents(); // refresh UI
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Progress simulation error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                MessageBox.Show("Thank you for reporting this issue!\n\nYour feedback helps improve services.", "Report Submitted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Closes the form and returns to main
+                this.BeginInvoke(new Action(() => this.DialogResult = DialogResult.Cancel));
             }
-
-            //Check description
-            if (string.IsNullOrWhiteSpace(richtxtDescription.Text))
+            catch (Exception ex)
             {
-                errorProvider1.SetError(richtxtDescription, "Description cannot be empty.");
-                hasError = true;
+                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            //Check location
-            if (string.IsNullOrWhiteSpace(txtLocation.Text))
-            {
-                errorProvider1.SetError(txtLocation, "Location cannot be empty.");
-                hasError = true;
-            }
-            if (hasError) return; //stop submission if there are errors
-
-            var issue = new Issue
-            {
-                Category = listCategory.SelectedItem.ToString(),
-                Description = richtxtDescription.Text.Trim(),
-                Location = txtLocation.Text.Trim(),
-                DateReported = DateTime.Now
-            };
-
-            //Add to repository (adds to list + file)
-            IssueRepository.AddIssue(issue);
-
-
-            //Simulate progress
-            progressBar1.Value = 0;
-            for (int i = 0; i <= 100; i += 10)
-            {
-                progressBar1.Value = i; 
-                System.Threading.Thread.Sleep(50); //small delay to simulate progress
-                Application.DoEvents(); // refresh UI
-            }
-            MessageBox.Show("Thank you for reporting this issue!\n\nYour feedback helps improve services.","Report Submitted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            // Closes the form and returns to main
-            this.BeginInvoke(new Action(() => this.DialogResult = DialogResult.Cancel));
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            Form1 mainForm = new Form1();
-            this.Hide();
-            mainForm.ShowDialog();
-            this.Show();
+            try
+            {
+                Form1 mainForm = new Form1();
+                this.Hide();
+                mainForm.ShowDialog();
+                this.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while returning to the main menu: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void richtxtDescription_TextChanged(object sender, EventArgs e)
