@@ -70,15 +70,30 @@ ________________________________________________________________________________
      - Close button returns to the main menu.
      - If no issue exist, a message appears and the form closes automatically.
 4. Local Events Announcements
-   - Displays upcoming events in an aesthetically pleasing ListView.
+   - Click Local Events & Announcements.
+   - The ListView shows upcoming events with the following columns:
+     - Event Name 
+     - Date
+     - Category
+     - Location
+     - Description
+   - The Status Bar at the bottom shows the total number of events currently displayed.
    - Search and filter events by:
      - Category (ComboBox)
+       - Use the Category drop-down
+       - Select a specific category or "All" to see all events.
      - Date (DatePicker)
+       - Use the Date picker to select a date.
    - Highlight the most urgent event using a priority queue:
      - Urgent Event (Button)
+       - Click Urgent Event to see the most urgent upcoming event.
+       - A pop-up displays the event name date.
    - Automatically organises events by date and category using SortedDictionary.
    - Maintains unique categories and dates using HashSet.
    - Click "Search" (button) to search event/announcement.
+5. Navigation
+   - Use "Back to Menu" buttons to return to the main menu.
+   - You can navigate between Events and Report Issues without losing data...
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________
 ## Data Handling (Data Structures)
 - Issues are stored in a List<Issue>, making it easy to:
