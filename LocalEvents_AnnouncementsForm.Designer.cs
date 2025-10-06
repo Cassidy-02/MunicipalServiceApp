@@ -205,8 +205,8 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(103, 20);
-            this.toolStripStatusLabel1.Text = "Total Events: 0";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(95, 20);
+            this.toolStripStatusLabel1.Text = "Total Events: ";
             // 
             // btnMenu
             // 
@@ -230,6 +230,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "LocalEvents_AnnocumentsForm";
             this.Text = "LocalEvents_AnnocumentsForm";
+            this.Load += new System.EventHandler(this.LocalEvents_AnnocumentsForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
