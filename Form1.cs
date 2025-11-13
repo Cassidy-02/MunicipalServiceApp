@@ -39,6 +39,11 @@ namespace MunicipalServiceApp
         private void btnStatus_Click(object sender, EventArgs e)
         {
             //Implement in Part 3
+            Service_Request_Status statusForm = new Service_Request_Status(this);
+            this.Hide();
+           statusForm.ShowDialog();
+            if (!this.IsDisposed && !this.Disposing)
+                this.Show();
         }
 
         private void btn_StatusIssues_Click(object sender, EventArgs e)

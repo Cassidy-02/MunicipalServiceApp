@@ -70,7 +70,6 @@
             // 
             // btnStatus
             // 
-            this.btnStatus.Enabled = false;
             this.btnStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStatus.Location = new System.Drawing.Point(357, 347);
             this.btnStatus.Name = "btnStatus";
