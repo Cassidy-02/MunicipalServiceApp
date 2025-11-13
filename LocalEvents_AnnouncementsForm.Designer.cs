@@ -31,6 +31,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnShowQueue = new System.Windows.Forms.Button();
+            this.btnProcessNext = new System.Windows.Forms.Button();
+            this.btnNextEvent = new System.Windows.Forms.Button();
+            this.btnRecent = new System.Windows.Forms.Button();
+            this.btnUndo = new System.Windows.Forms.Button();
             this.btnUrgent = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -46,11 +51,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnMenu = new System.Windows.Forms.Button();
-            this.btnUndo = new System.Windows.Forms.Button();
-            this.btnRecent = new System.Windows.Forms.Button();
-            this.btnNextEvent = new System.Windows.Forms.Button();
-            this.btnProcessNext = new System.Windows.Forms.Button();
-            this.btnShowQueue = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -98,6 +98,56 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search Events";
+            // 
+            // btnShowQueue
+            // 
+            this.btnShowQueue.Location = new System.Drawing.Point(637, 60);
+            this.btnShowQueue.Name = "btnShowQueue";
+            this.btnShowQueue.Size = new System.Drawing.Size(110, 26);
+            this.btnShowQueue.TabIndex = 10;
+            this.btnShowQueue.Text = "Show Events";
+            this.btnShowQueue.UseVisualStyleBackColor = true;
+            this.btnShowQueue.Click += new System.EventHandler(this.btnShowQueue_Click);
+            // 
+            // btnProcessNext
+            // 
+            this.btnProcessNext.Location = new System.Drawing.Point(503, 61);
+            this.btnProcessNext.Name = "btnProcessNext";
+            this.btnProcessNext.Size = new System.Drawing.Size(128, 26);
+            this.btnProcessNext.TabIndex = 9;
+            this.btnProcessNext.Text = "Process Event";
+            this.btnProcessNext.UseVisualStyleBackColor = true;
+            this.btnProcessNext.Click += new System.EventHandler(this.btnProcessNext_Click);
+            // 
+            // btnNextEvent
+            // 
+            this.btnNextEvent.Location = new System.Drawing.Point(400, 62);
+            this.btnNextEvent.Name = "btnNextEvent";
+            this.btnNextEvent.Size = new System.Drawing.Size(97, 24);
+            this.btnNextEvent.TabIndex = 8;
+            this.btnNextEvent.Text = "Next Event ";
+            this.btnNextEvent.UseVisualStyleBackColor = true;
+            this.btnNextEvent.Click += new System.EventHandler(this.btnNextEvent_Click);
+            // 
+            // btnRecent
+            // 
+            this.btnRecent.Location = new System.Drawing.Point(277, 63);
+            this.btnRecent.Name = "btnRecent";
+            this.btnRecent.Size = new System.Drawing.Size(117, 26);
+            this.btnRecent.TabIndex = 7;
+            this.btnRecent.Text = "Recent Event ";
+            this.btnRecent.UseVisualStyleBackColor = true;
+            this.btnRecent.Click += new System.EventHandler(this.btnRecent_Click);
+            // 
+            // btnUndo
+            // 
+            this.btnUndo.Location = new System.Drawing.Point(150, 64);
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.Size = new System.Drawing.Size(121, 26);
+            this.btnUndo.TabIndex = 6;
+            this.btnUndo.Text = "Undo";
+            this.btnUndo.UseVisualStyleBackColor = true;
+            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
             // 
             // btnUrgent
             // 
@@ -227,56 +277,6 @@
             this.btnMenu.Text = "Back to Menu";
             this.btnMenu.UseVisualStyleBackColor = true;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
-            // btnUndo
-            // 
-            this.btnUndo.Location = new System.Drawing.Point(150, 64);
-            this.btnUndo.Name = "btnUndo";
-            this.btnUndo.Size = new System.Drawing.Size(121, 26);
-            this.btnUndo.TabIndex = 6;
-            this.btnUndo.Text = "Undo";
-            this.btnUndo.UseVisualStyleBackColor = true;
-            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
-            // 
-            // btnRecent
-            // 
-            this.btnRecent.Location = new System.Drawing.Point(277, 63);
-            this.btnRecent.Name = "btnRecent";
-            this.btnRecent.Size = new System.Drawing.Size(117, 26);
-            this.btnRecent.TabIndex = 7;
-            this.btnRecent.Text = "Recent Event ";
-            this.btnRecent.UseVisualStyleBackColor = true;
-            this.btnRecent.Click += new System.EventHandler(this.btnRecent_Click);
-            // 
-            // btnNextEvent
-            // 
-            this.btnNextEvent.Location = new System.Drawing.Point(400, 62);
-            this.btnNextEvent.Name = "btnNextEvent";
-            this.btnNextEvent.Size = new System.Drawing.Size(97, 24);
-            this.btnNextEvent.TabIndex = 8;
-            this.btnNextEvent.Text = "Next Event ";
-            this.btnNextEvent.UseVisualStyleBackColor = true;
-            this.btnNextEvent.Click += new System.EventHandler(this.btnNextEvent_Click);
-            // 
-            // btnProcessNext
-            // 
-            this.btnProcessNext.Location = new System.Drawing.Point(503, 61);
-            this.btnProcessNext.Name = "btnProcessNext";
-            this.btnProcessNext.Size = new System.Drawing.Size(128, 26);
-            this.btnProcessNext.TabIndex = 9;
-            this.btnProcessNext.Text = "Process Event";
-            this.btnProcessNext.UseVisualStyleBackColor = true;
-            this.btnProcessNext.Click += new System.EventHandler(this.btnProcessNext_Click);
-            // 
-            // btnShowQueue
-            // 
-            this.btnShowQueue.Location = new System.Drawing.Point(637, 60);
-            this.btnShowQueue.Name = "btnShowQueue";
-            this.btnShowQueue.Size = new System.Drawing.Size(110, 26);
-            this.btnShowQueue.TabIndex = 10;
-            this.btnShowQueue.Text = "Show Events";
-            this.btnShowQueue.UseVisualStyleBackColor = true;
-            this.btnShowQueue.Click += new System.EventHandler(this.btnShowQueue_Click);
             // 
             // LocalEvents_AnnocumentsForm
             // 
