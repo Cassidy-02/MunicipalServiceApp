@@ -7,13 +7,15 @@ Users can:
 - Delete issues if needed.
 - Track engagement with feedback messages, labels, and counters.
 - Allows users to browse, search, and filter events.
-The Main Menu (Form1) acts as the hub:
+- Track Service Request Status (search by RequestID, view priorities and dependencies).
+-The Main Menu (Form1) acts as the hub:
 - It never closes (only hides) when other forms are open.
 - When a sub-form is closed, Form1 reappears automatically.
-___________________________________________________________________________________________________________________________________________________________________________________________________________
+- The app demonstrates the usage of advanced data structures to organise and retrieve data efficiently: SortedDictionary, HashSet, PriorityQueue, Stack, Queue, Binary Search Tree (BST), AVL tree, Min-Heap, and Graph algorithms.
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 ## Requirements
 - Windows OS
-- Visual Studio 2019 or later
+- Visual Studio 2022 or later
 - .NET Framework 4.7.2 or later
 ____________________________________________________________________________________________________________________________________________________________________________________________________________
 ## GitHub Link
@@ -53,6 +55,7 @@ ________________________________________________________________________________
      - Report Issues
      - View Reports
      - Local Events and Announcements
+     - Service Request Status
 2. Report Issues Form
    - Fill the following fields:
      - Location (TextBox)
@@ -90,8 +93,21 @@ ________________________________________________________________________________
        - A pop-up displays the event name date.
    - Automatically organises events by date and category using SortedDictionary.
    - Maintains unique categories and dates using HashSet.
+   - Stack & Queue demonstration for event browsing history.
    - Click "Search" (button) to search event/announcement.
-5. Navigation
+5. Service Request Status (New Form)
+   - Displays a sortable, structured list of all service requests using:
+   - Binary Search Tree - sorted order by RequestID
+   - Min-heap - retrieve most urgent request
+   - Graph - view request dependencies
+   - Stacks & Queues - request history & review queue
+   - Advanced tree structures (AVL & RBT) - fast searching & retrieval
+   - Includes:
+        - Search by requestID
+        - Show All button
+        - Most urgent request button
+        - Dependency viewer
+6. Navigation
    - Use "Back to Menu" buttons to return to the main menu.
    - You can navigate between Events and Report Issues without losing data...
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________
@@ -104,6 +120,14 @@ ________________________________________________________________________________
 - SortedDictionary<string>,List<Event>> - Automatically sorts events by category.
 - PriorityQueue<Event> - Identifies and retrieves the most urgent events.
 - HashSet<string> / HashSet<DateTime> - Stores unique categories and dates efficiently.
+- Min-Heap - Identifies and retrieves the most urgent service request.
+- Stack - Used to save event browsing history.
+- Queue - Used to store:
+             - Upcoming events queue
+             - Request processing order
+- Binary Search Tree (BST) - Sort requests by ID and allow efficient searching.
+- AVL Tree - Keeps tree height minimal and improves search speed.
+- Graph + Graph Traversal - request dependencies and determine which requests must be completed first.
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________
 ## Error Handling
 - Try-catch blocks are implemented for:
@@ -114,7 +138,10 @@ ________________________________________________________________________________
 - Errors are displayed via MessageBox to ensure smooth user experience.
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________
 ## Future Enhancements
-- Enable Service Request Status.
+- Integration with an online municipal portal
+- Real-time API for live event updates
+- User authenication system
+- Push notifications
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________
 ## Author
 Developed by Cassidy Motto as part of a municipal engagement project.
